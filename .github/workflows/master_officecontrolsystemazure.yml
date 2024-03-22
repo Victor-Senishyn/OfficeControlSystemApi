@@ -19,17 +19,17 @@ jobs:
           dotnet-version: '8.x'
           include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Build Docker image
+        run: docker build --file Dockerfile --tag myapp:latest .
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Push Docker image to Docker Hub
+        run: docker push myapp:latest
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+      - name: Upload Docker image artifact for deployment job
+        uses: actions/upload-artifact@v2
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: docker-image
+          path: myapp/
 
   deploy:
     runs-on: ubuntu-latest
