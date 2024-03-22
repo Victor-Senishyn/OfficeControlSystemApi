@@ -1,8 +1,7 @@
 name: Build and deploy a container to an Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: OfficeControlSystemAzure   # змініть на ім'я вашого веб-додатку
-
+  AZURE_WEBAPP_NAME: OfficeControlSystemAzure
 on:
   push:
     branches:
