@@ -60,4 +60,3 @@ jobs:
           app-name: 'OfficeControlSystemAzure'
           slot-name: 'Production'
           package: .
-          
