@@ -45,7 +45,7 @@ jobs:
           password: ${{ secrets.DOCKER }}
 
       - name: Push Docker image to Docker Hub
-        run: docker push my-image-name:$(date +%s)
+        run: docker push officecontrolsystemapi:$(date +%s)
 
   deploy:
     runs-on: ubuntu-latest
