@@ -28,6 +28,9 @@ jobs:
       - name: Build Docker image
         run: docker build -t victorsenishyn/office-control-system:${{ github.sha }} .
 
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER }}" | docker login -u victorsenishyn --password-stdin
+
       - name: Push Docker image to Docker Hub
         run: docker push victorsenishyn/office-control-system:${{ github.sha }}
 
