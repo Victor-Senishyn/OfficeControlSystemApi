@@ -1,4 +1,4 @@
-name: Build and deploy ASP.Net Core app to Azure Web App - OfficeControlSystemAzure
+name: Build, deploy ASP.Net Core app to Azure Web App and push Docker image
 
 on:
   push:
@@ -24,6 +24,12 @@ jobs:
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Build Docker image
+        run: docker build -t victorsenishyn/office-control-system:${{ github.sha }} .
+
+      - name: Push Docker image to Docker Hub
+        run: docker push victorsenishyn/office-control-system:${{ github.sha }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
