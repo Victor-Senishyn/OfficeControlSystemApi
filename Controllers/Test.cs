@@ -7,7 +7,7 @@ namespace OfficeControlSystemApi.Controllers
 {
     public class Test : Controller
     {
-        [HttpPost("/test")]
+        [HttpGet("/test")]
         public async Task<IActionResult> Test1() => Ok("Hello world");
     }
 }
