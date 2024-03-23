@@ -79,11 +79,8 @@ builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
 var app = builder.Build();
 
-
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OfficeControlSystem"));
-app.ApplyMigrations();
-
 
 app.UseAuthentication();
 app.UseAuthorization();
