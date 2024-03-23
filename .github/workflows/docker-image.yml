@@ -68,4 +68,4 @@ jobs:
         with:
           app-name: 'OfficeControlSystemAzure'
           slot-name: 'Production'
-          package: .
+          images: 'victorsenishyn/office-control-system:${{ github.sha }}'
