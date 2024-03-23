@@ -86,7 +86,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     //app.ApplyMigrations();///
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
