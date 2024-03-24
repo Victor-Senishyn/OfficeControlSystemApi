@@ -39,7 +39,7 @@ builder.Services.AddSwaggerGen(options =>
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql("Host=officedb.postgres.database.azure.com;Port=5432;Database=postgres;Username=postgres;Password=Qwe123@$"));//builder.Configuration.GetConnectionString("WebApiDatabase")));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDatabase")));
 
 builder.Services.AddIdentityApiEndpoints<User>()
     .AddRoles<IdentityRole>()
